@@ -29,6 +29,7 @@ namespace THLSC
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnAttach = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
@@ -73,6 +74,7 @@ namespace THLSC
             this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSettings.Enabled = false;
             this.btnSettings.Location = new System.Drawing.Point(0, 3);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btnSettings.Name = "btnSettings";
@@ -326,6 +328,7 @@ namespace THLSC
             this.Controls.Add(this.tableInfo);
             this.Controls.Add(this.tableBtn2);
             this.Controls.Add(this.tableBtn1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(362, 375);
             this.Name = "MainForm";
             this.Text = "Touhou Live Survival Counter";
