@@ -30,11 +30,11 @@ namespace THLSC
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.btnAttach = new System.Windows.Forms.Button();
+            this.btnTrigger = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
-            this.tableBtn1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableBtn2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableEventBtn1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableEventBtn2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableInfoPrimary = new System.Windows.Forms.TableLayoutPanel();
             this.infoMiss = new System.Windows.Forms.Label();
             this.infoBomb = new System.Windows.Forms.Label();
@@ -46,28 +46,39 @@ namespace THLSC
             this.infoShot = new System.Windows.Forms.Label();
             this.tableInfo = new System.Windows.Forms.TableLayoutPanel();
             this.tableInfoCond = new System.Windows.Forms.TableLayoutPanel();
-            this.tableBtn1.SuspendLayout();
-            this.tableBtn2.SuspendLayout();
+            this.infoCond4 = new System.Windows.Forms.Label();
+            this.infoCond3 = new System.Windows.Forms.Label();
+            this.infoCond2 = new System.Windows.Forms.Label();
+            this.infoCond1 = new System.Windows.Forms.Label();
+            this.mainWorker = new System.ComponentModel.BackgroundWorker();
+            this.tableEvent = new System.Windows.Forms.TableLayoutPanel();
+            this.tableEventStat = new System.Windows.Forms.TableLayoutPanel();
+            this.eventStat = new System.Windows.Forms.Label();
+            this.tableEventBtn1.SuspendLayout();
+            this.tableEventBtn2.SuspendLayout();
             this.tableInfoPrimary.SuspendLayout();
             this.tableInfoGame.SuspendLayout();
             this.tableInfoDiff.SuspendLayout();
             this.tableInfoShot.SuspendLayout();
             this.tableInfo.SuspendLayout();
+            this.tableInfoCond.SuspendLayout();
+            this.tableEvent.SuspendLayout();
+            this.tableEventStat.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnAttach
+            // btnTrigger
             // 
-            this.btnAttach.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnTrigger.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAttach.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAttach.Location = new System.Drawing.Point(0, 4);
-            this.btnAttach.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.btnAttach.Name = "btnAttach";
-            this.btnAttach.Size = new System.Drawing.Size(322, 25);
-            this.btnAttach.TabIndex = 1;
-            this.btnAttach.Text = "Attach";
-            this.btnAttach.UseVisualStyleBackColor = true;
-            this.btnAttach.Click += new System.EventHandler(this.Attach);
+            this.btnTrigger.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnTrigger.Location = new System.Drawing.Point(0, 3);
+            this.btnTrigger.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.btnTrigger.Name = "btnTrigger";
+            this.btnTrigger.Size = new System.Drawing.Size(320, 24);
+            this.btnTrigger.TabIndex = 1;
+            this.btnTrigger.Text = "Start";
+            this.btnTrigger.UseVisualStyleBackColor = true;
+            this.btnTrigger.Click += new System.EventHandler(this.MainWork);
             // 
             // btnSettings
             // 
@@ -78,7 +89,7 @@ namespace THLSC
             this.btnSettings.Location = new System.Drawing.Point(0, 3);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(158, 25);
+            this.btnSettings.Size = new System.Drawing.Size(157, 25);
             this.btnSettings.TabIndex = 2;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = true;
@@ -89,46 +100,48 @@ namespace THLSC
             this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAbout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAbout.Location = new System.Drawing.Point(164, 3);
+            this.btnAbout.Location = new System.Drawing.Point(163, 3);
             this.btnAbout.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(158, 25);
+            this.btnAbout.Size = new System.Drawing.Size(157, 25);
             this.btnAbout.TabIndex = 3;
             this.btnAbout.Text = "About";
             this.btnAbout.UseVisualStyleBackColor = true;
             this.btnAbout.Click += new System.EventHandler(this.About);
             // 
-            // tableBtn1
+            // tableEventBtn1
             // 
-            this.tableBtn1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.tableEventBtn1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableBtn1.ColumnCount = 1;
-            this.tableBtn1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableBtn1.Controls.Add(this.btnAttach, 0, 0);
-            this.tableBtn1.Location = new System.Drawing.Point(12, 265);
-            this.tableBtn1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableBtn1.Name = "tableBtn1";
-            this.tableBtn1.RowCount = 1;
-            this.tableBtn1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableBtn1.Size = new System.Drawing.Size(322, 32);
-            this.tableBtn1.TabIndex = 4;
+            this.tableEventBtn1.ColumnCount = 1;
+            this.tableEventBtn1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableEventBtn1.Controls.Add(this.btnTrigger, 0, 0);
+            this.tableEventBtn1.Location = new System.Drawing.Point(0, 29);
+            this.tableEventBtn1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableEventBtn1.Name = "tableEventBtn1";
+            this.tableEventBtn1.RowCount = 1;
+            this.tableEventBtn1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableEventBtn1.Size = new System.Drawing.Size(320, 30);
+            this.tableEventBtn1.TabIndex = 4;
             // 
-            // tableBtn2
+            // tableEventBtn2
             // 
-            this.tableBtn2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.tableEventBtn2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableBtn2.ColumnCount = 2;
-            this.tableBtn2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableBtn2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableBtn2.Controls.Add(this.btnSettings, 0, 0);
-            this.tableBtn2.Controls.Add(this.btnAbout, 1, 0);
-            this.tableBtn2.Location = new System.Drawing.Point(12, 296);
-            this.tableBtn2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableBtn2.Name = "tableBtn2";
-            this.tableBtn2.RowCount = 1;
-            this.tableBtn2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableBtn2.Size = new System.Drawing.Size(322, 31);
-            this.tableBtn2.TabIndex = 5;
+            this.tableEventBtn2.ColumnCount = 2;
+            this.tableEventBtn2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableEventBtn2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableEventBtn2.Controls.Add(this.btnSettings, 0, 0);
+            this.tableEventBtn2.Controls.Add(this.btnAbout, 1, 0);
+            this.tableEventBtn2.Location = new System.Drawing.Point(0, 59);
+            this.tableEventBtn2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableEventBtn2.Name = "tableEventBtn2";
+            this.tableEventBtn2.RowCount = 1;
+            this.tableEventBtn2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableEventBtn2.Size = new System.Drawing.Size(320, 31);
+            this.tableEventBtn2.TabIndex = 5;
             // 
             // tableInfoPrimary
             // 
@@ -301,6 +314,7 @@ namespace THLSC
             this.tableInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableInfo.Size = new System.Drawing.Size(322, 250);
             this.tableInfo.TabIndex = 9;
             // 
@@ -310,46 +324,177 @@ namespace THLSC
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableInfoCond.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableInfoCond.ColumnCount = 1;
-            this.tableInfoCond.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableInfoCond.ColumnCount = 4;
+            this.tableInfoCond.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableInfoCond.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableInfoCond.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableInfoCond.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableInfoCond.Controls.Add(this.infoCond4, 3, 0);
+            this.tableInfoCond.Controls.Add(this.infoCond3, 2, 0);
+            this.tableInfoCond.Controls.Add(this.infoCond2, 1, 0);
+            this.tableInfoCond.Controls.Add(this.infoCond1, 0, 0);
             this.tableInfoCond.Location = new System.Drawing.Point(0, 200);
             this.tableInfoCond.Margin = new System.Windows.Forms.Padding(0);
             this.tableInfoCond.Name = "tableInfoCond";
             this.tableInfoCond.RowCount = 1;
-            this.tableInfoCond.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableInfoCond.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableInfoCond.Size = new System.Drawing.Size(322, 50);
             this.tableInfoCond.TabIndex = 13;
+            // 
+            // infoCond4
+            // 
+            this.infoCond4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoCond4.BackColor = System.Drawing.Color.Transparent;
+            this.infoCond4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.infoCond4.ForeColor = System.Drawing.Color.White;
+            this.infoCond4.Location = new System.Drawing.Point(241, 1);
+            this.infoCond4.Margin = new System.Windows.Forms.Padding(0);
+            this.infoCond4.Name = "infoCond4";
+            this.infoCond4.Size = new System.Drawing.Size(80, 48);
+            this.infoCond4.TabIndex = 11;
+            this.infoCond4.Text = "4";
+            this.infoCond4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // infoCond3
+            // 
+            this.infoCond3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoCond3.BackColor = System.Drawing.Color.Transparent;
+            this.infoCond3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.infoCond3.ForeColor = System.Drawing.Color.White;
+            this.infoCond3.Location = new System.Drawing.Point(161, 1);
+            this.infoCond3.Margin = new System.Windows.Forms.Padding(0);
+            this.infoCond3.Name = "infoCond3";
+            this.infoCond3.Size = new System.Drawing.Size(79, 48);
+            this.infoCond3.TabIndex = 11;
+            this.infoCond3.Text = "3";
+            this.infoCond3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // infoCond2
+            // 
+            this.infoCond2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoCond2.BackColor = System.Drawing.Color.Transparent;
+            this.infoCond2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.infoCond2.ForeColor = System.Drawing.Color.White;
+            this.infoCond2.Location = new System.Drawing.Point(81, 1);
+            this.infoCond2.Margin = new System.Windows.Forms.Padding(0);
+            this.infoCond2.Name = "infoCond2";
+            this.infoCond2.Size = new System.Drawing.Size(79, 48);
+            this.infoCond2.TabIndex = 11;
+            this.infoCond2.Text = "2";
+            this.infoCond2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // infoCond1
+            // 
+            this.infoCond1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoCond1.BackColor = System.Drawing.Color.Transparent;
+            this.infoCond1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.infoCond1.ForeColor = System.Drawing.Color.White;
+            this.infoCond1.Location = new System.Drawing.Point(1, 1);
+            this.infoCond1.Margin = new System.Windows.Forms.Padding(0);
+            this.infoCond1.Name = "infoCond1";
+            this.infoCond1.Size = new System.Drawing.Size(79, 48);
+            this.infoCond1.TabIndex = 10;
+            this.infoCond1.Text = "1";
+            this.infoCond1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mainWorker
+            // 
+            this.mainWorker.WorkerSupportsCancellation = true;
+            this.mainWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.DoWork);
+            this.mainWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.OnWorkCompleted);
+            // 
+            // tableEvent
+            // 
+            this.tableEvent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableEvent.ColumnCount = 1;
+            this.tableEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableEvent.Controls.Add(this.tableEventStat, 0, 0);
+            this.tableEvent.Controls.Add(this.tableEventBtn1, 0, 1);
+            this.tableEvent.Controls.Add(this.tableEventBtn2, 0, 2);
+            this.tableEvent.Location = new System.Drawing.Point(13, 268);
+            this.tableEvent.Name = "tableEvent";
+            this.tableEvent.RowCount = 3;
+            this.tableEvent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableEvent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableEvent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableEvent.Size = new System.Drawing.Size(320, 90);
+            this.tableEvent.TabIndex = 10;
+            // 
+            // tableEventStat
+            // 
+            this.tableEventStat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableEventStat.ColumnCount = 1;
+            this.tableEventStat.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableEventStat.Controls.Add(this.eventStat, 0, 0);
+            this.tableEventStat.Location = new System.Drawing.Point(0, 0);
+            this.tableEventStat.Margin = new System.Windows.Forms.Padding(0);
+            this.tableEventStat.Name = "tableEventStat";
+            this.tableEventStat.RowCount = 1;
+            this.tableEventStat.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableEventStat.Size = new System.Drawing.Size(320, 29);
+            this.tableEventStat.TabIndex = 11;
+            // 
+            // eventStat
+            // 
+            this.eventStat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.eventStat.AutoSize = true;
+            this.eventStat.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.eventStat.ForeColor = System.Drawing.Color.Red;
+            this.eventStat.Location = new System.Drawing.Point(0, 0);
+            this.eventStat.Margin = new System.Windows.Forms.Padding(0);
+            this.eventStat.Name = "eventStat";
+            this.eventStat.Size = new System.Drawing.Size(320, 29);
+            this.eventStat.TabIndex = 0;
+            this.eventStat.Text = "Status: Not Running";
+            this.eventStat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 336);
+            this.ClientSize = new System.Drawing.Size(346, 370);
+            this.Controls.Add(this.tableEvent);
             this.Controls.Add(this.tableInfo);
-            this.Controls.Add(this.tableBtn2);
-            this.Controls.Add(this.tableBtn1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(362, 375);
             this.Name = "MainForm";
             this.Text = "Touhou Live Survival Counter";
-            this.tableBtn1.ResumeLayout(false);
-            this.tableBtn2.ResumeLayout(false);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
+            this.tableEventBtn1.ResumeLayout(false);
+            this.tableEventBtn2.ResumeLayout(false);
             this.tableInfoPrimary.ResumeLayout(false);
             this.tableInfoGame.ResumeLayout(false);
             this.tableInfoDiff.ResumeLayout(false);
             this.tableInfoShot.ResumeLayout(false);
             this.tableInfo.ResumeLayout(false);
+            this.tableInfoCond.ResumeLayout(false);
+            this.tableEvent.ResumeLayout(false);
+            this.tableEventStat.ResumeLayout(false);
+            this.tableEventStat.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnAttach;
+        private System.Windows.Forms.Button btnTrigger;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnAbout;
-        private System.Windows.Forms.TableLayoutPanel tableBtn1;
-        private System.Windows.Forms.TableLayoutPanel tableBtn2;
+        private System.Windows.Forms.TableLayoutPanel tableEventBtn1;
+        private System.Windows.Forms.TableLayoutPanel tableEventBtn2;
         private System.Windows.Forms.TableLayoutPanel tableInfoPrimary;
         private System.Windows.Forms.Label infoMiss;
         private System.Windows.Forms.Label infoBomb;
@@ -361,6 +506,14 @@ namespace THLSC
         private System.Windows.Forms.Label infoShot;
         private System.Windows.Forms.TableLayoutPanel tableInfo;
         private System.Windows.Forms.TableLayoutPanel tableInfoCond;
+        private System.ComponentModel.BackgroundWorker mainWorker;
+        private System.Windows.Forms.Label infoCond4;
+        private System.Windows.Forms.Label infoCond3;
+        private System.Windows.Forms.Label infoCond2;
+        private System.Windows.Forms.Label infoCond1;
+        private System.Windows.Forms.TableLayoutPanel tableEvent;
+        private System.Windows.Forms.TableLayoutPanel tableEventStat;
+        private System.Windows.Forms.Label eventStat;
     }
 }
 
