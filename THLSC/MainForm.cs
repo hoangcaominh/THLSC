@@ -85,7 +85,6 @@ namespace THLSC
             else
             {
                 mainWorker.CancelAsync();
-                UpdateEventWorkStopping();
             }
         }
 
@@ -188,8 +187,7 @@ namespace THLSC
 
         private void OnWorkCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            UpdateEventWorkStopping();
-            _log.WriteLine("The background worker has finished its job.");
+            UpdateEventWorkStopped();
             // Properly dispose objects after finishing the background worker
             if (_closePending)
             {
@@ -206,13 +204,13 @@ namespace THLSC
             _log.WriteLine("The background worker is starting...");
         }
 
-        private void UpdateEventWorkStopping()
+        private void UpdateEventWorkStopped()
         {
             btnTrigger.Text = "Start";
             eventStat.ForeColor = Color.Red;
             eventStat.Text = "Status: Not Running";
 
-            _log.WriteLine("The background worker is stopping...");
+            _log.WriteLine("The background worker has stopped.");
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
