@@ -101,10 +101,12 @@ namespace THLSC
                 case "th07":
                     tableInfoCond.ColumnCount = 1;
                     infoCond1.ForeColor = Color.Violet;
+                    infoCond1.Text = "Border break";
                     break;
                 case "th08":
                     tableInfoCond.ColumnCount = 1;
                     infoCond1.ForeColor = Color.White;
+                    infoCond1.Text = "Spell captured";
                     break;
                 case "th12":
                     tableInfoCond.ColumnCount = 4;
@@ -112,20 +114,29 @@ namespace THLSC
                     infoCond2.ForeColor = Color.Lime;
                     infoCond3.ForeColor = Color.FromArgb(255, 102, 156, 255);
                     infoCond4.ForeColor = Color.Yellow;
+                    infoCond1.Text = "1";
+                    infoCond2.Text = "2";
+                    infoCond3.Text = "3";
+                    infoCond4.Text = "4";
                     break;
                 case "th128":
                     tableInfoCond.ColumnCount = 3;
                     infoCond1.ForeColor = Color.Gold;
                     infoCond2.ForeColor = Color.Silver;
                     infoCond3.ForeColor = Color.FromArgb(255, 192, 64, 0);
+                    infoCond1.Text = "1";
+                    infoCond2.Text = "2";
+                    infoCond3.Text = "3";
                     break;
                 case "th13":
                     tableInfoCond.ColumnCount = 1;
                     infoCond1.ForeColor = Color.Silver;
+                    infoCond1.Text = "Trance";
                     break;
                 case "th16":
                     tableInfoCond.ColumnCount = 1;
                     infoCond1.ForeColor = Color.Yellow;
+                    infoCond1.Text = "Release";
                     break;
                 case "th17":
                     tableInfoCond.ColumnCount = 4;
@@ -133,6 +144,10 @@ namespace THLSC
                     infoCond2.ForeColor = Color.Lime;
                     infoCond3.ForeColor = Color.FromArgb(255, 138, 13, 255);
                     infoCond4.ForeColor = Color.Yellow;
+                    infoCond1.Text = "1";
+                    infoCond2.Text = "2";
+                    infoCond3.Text = "3";
+                    infoCond4.Text = "4";
                     break;
                 default:
                     tableInfoCond.Visible = false;
