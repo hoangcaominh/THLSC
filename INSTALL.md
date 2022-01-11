@@ -6,7 +6,7 @@ For the time being this application runs on Windows operating system.
 
 ## Dependencies
 
-- [.NET Desktop Runtime 5.0.0](https://dotnet.microsoft.com/en-us/download/dotnet/5.0) or higher
+- [.NET Desktop Runtime for Windows x86 5.0.0](https://dotnet.microsoft.com/en-us/download/dotnet/5.0) or higher
 
 ## Installation
 
