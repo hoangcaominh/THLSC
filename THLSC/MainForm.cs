@@ -177,7 +177,7 @@ namespace THLSC
                 // Update the control
                 Invoke(new Action(InitWork));
 
-                _log.WriteLine("Displayer initialized successfully.");
+                _log.WriteLine("Displayer initialized successfully. Start reading memory...");
 #if DEBUG
                 _log.WriteLine("Log will now receive output from the SharpTori library.");
 #endif
