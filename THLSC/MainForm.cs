@@ -53,7 +53,7 @@ namespace THLSC
             _log.WriteLine("Touhou Live Survival Calculator");
             _log.WriteLine("Version 1.0 Alpla");
             _log.WriteLine("The time is {0}", DateTime.Now);
-#if debug
+#if DEBUG
             _log.WriteLine("----------------------------------------------------------------");
             _log.WriteLine("Directing all console outputs to this file...");
             Console.SetOut(_log);
