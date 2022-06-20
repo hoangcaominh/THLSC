@@ -15,6 +15,8 @@ namespace THLSC
 {
     public partial class MainForm : Form
     {
+        private const int DELAY = 10;
+
         private delegate void DelUpdateInfo();
         private DelUpdateInfo UpdateInfo;
         private Dictionary<string, DelUpdateInfo> _updateInfoTable;
@@ -265,7 +267,7 @@ namespace THLSC
                     infoBomb.Text = "Bomb: " + th06.GetBombCount().ToString();
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
 
@@ -296,7 +298,7 @@ namespace THLSC
                     infoCond1.Text = "Border break: " + th07.GetBorderBreakCount().ToString();
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
 
@@ -340,7 +342,7 @@ namespace THLSC
                     infoCond1.Text = "Spell captured: " + th08.GetSpellCapturedCount().ToString() + "/" + ((totalSpells != null) ? totalSpells : "?");
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
 
@@ -372,7 +374,7 @@ namespace THLSC
                     */
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
 
@@ -402,7 +404,7 @@ namespace THLSC
                     infoBomb.Text = "Bomb: " + th10.GetBombCount().ToString();
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
 
@@ -432,7 +434,7 @@ namespace THLSC
                     infoBomb.Text = "Bomb: " + th11.GetBombCount().ToString();
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
 
@@ -468,7 +470,7 @@ namespace THLSC
                     infoCond4.Text = ufoCount.Rainbow.ToString();
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
 
@@ -501,7 +503,7 @@ namespace THLSC
                     infoCond3.Text = "B: " + medalCount.Bronze.ToString();
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
 
@@ -530,7 +532,7 @@ namespace THLSC
                     infoCond1.Text = "Trance: " + th13.GetTranceCount().ToString();
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
 
@@ -559,7 +561,7 @@ namespace THLSC
                     infoBomb.Text = "Bomb: " + th14.GetBombCount().ToString();
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
 
@@ -587,7 +589,7 @@ namespace THLSC
                     infoBomb.Text = "Bomb: " + th15.GetBombCount().ToString();
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
 
@@ -617,7 +619,7 @@ namespace THLSC
                     infoCond1.Text = "Release: " + th16.GetReleaseCount().ToString();
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
 
@@ -652,7 +654,7 @@ namespace THLSC
                     infoCond4.Text = hyperCount.Break.ToString();
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
 
@@ -680,7 +682,7 @@ namespace THLSC
                     infoBomb.Text = "Bomb: " + th18.GetBombCount().ToString();
                 }));
 
-                Thread.Sleep(1);
+                Thread.Sleep(DELAY);
             }
         }
     }
