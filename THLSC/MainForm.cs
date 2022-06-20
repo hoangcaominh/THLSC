@@ -53,7 +53,7 @@ namespace THLSC
                 Directory.CreateDirectory("logs");
             _log = new StreamWriter(string.Format("logs/thlsc-{0}.txt", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")));
             _log.WriteLine("Touhou Live Survival Calculator");
-            _log.WriteLine("Version 1.0.0");
+            _log.WriteLine("Version 1.0.1");
             _log.WriteLine("The time is {0}", DateTime.Now);
 #if DEBUG
             _log.WriteLine("----------------------------------------------------------------");
@@ -67,7 +67,7 @@ namespace THLSC
         private void About(object sender, EventArgs e)
         {
             MessageBox.Show("Touhou Live Survival Counter by Cao Minh\n" + 
-                "Version 1.0.0\n\n" +
+                "Version 1.0.1\n\n" +
                 "This is a tool that reads in-game information to keep track of the status of the survival run.\n" + 
                 "This tool is the descendant of RealTimeDRCPointsDisplayer, with many bugs fixed and the internal works separated in the library SharpTori.\n" +
                 "For the time being THLSC supports Touhou 6, 7, 8, 10, 11, 12, 12.8, 13, 14, 15, 16, 17 and 18.\n" +
